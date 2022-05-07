@@ -4,7 +4,7 @@ const multiply = (a,b)=>parseFloat(a)*parseFloat(b);
 const divide = (a,b)=>parseFloat(a)/parseFloat(b);
 
 
-const operate = (a,b,op) =>{
+var operate = (a,b,op) =>{
 
     const operations = {
         '+': add(a,b),

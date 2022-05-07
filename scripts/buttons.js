@@ -4,6 +4,14 @@ const buttons = document.querySelector('.container').querySelectorAll('div');
 
 const clearDisplay = () =>display.innerText = "";
 
+const calculateAnswer = () =>{
+    tempQueue = calcQueue.split(/(?=[*/+-])|(?<=[*/+-])/g);
+    if(tempQueue.length == 3){
+        display.innerText = operate(tempQueue[0],tempQueue[2],tempQueue[1]);
+    }  
+
+}
+
 var calcQueue = "";
 
 buttons.forEach((button)=>{
@@ -17,24 +25,20 @@ buttons.forEach((button)=>{
     else if(button.className=='equal'){
         button.addEventListener('click', () => {
             calcQueue = display.innerText;
-            console.log(calcQueue);
-            clearDisplay();
+            
+            calculateAnswer();
             
           });
     
     }
     
-    
     else{
         
         button.addEventListener('click', () => {
-            display.innerText += button.innerText;
+            display.innerText += button.dataset.value;
             
         });
     }
 
-    
-
-    
 });
 
