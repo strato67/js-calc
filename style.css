@@ -11,7 +11,7 @@
 
 .container>div{
     height: 100px;
-    border-style: solid;
+    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #d2d2d0;
     border-radius: 1em;
@@ -31,7 +31,7 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     overflow-x: scroll;
     padding-top: 1em;
-    
+    height: 2em;
     user-select: none;
 }
 
@@ -45,7 +45,7 @@
       "seven eight nine divide"
       "four five six multiply"
       "one two three subtract"
-      "decimal equal equal add";
+      "decimal zero equal add";
       text-align: center;
       font-size: 3em;
 
@@ -85,6 +85,7 @@
   
   .equal { grid-area: equal; }
   
+  .zero { grid-area: zero; }
   .decimal { grid-area: decimal; }
   
   .clear { grid-area: clear; }
