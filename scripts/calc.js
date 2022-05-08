@@ -5,7 +5,6 @@ const divide = (a,b)=>parseFloat(a)/parseFloat(b);
 
 
 var operate = (a,b,op) =>{
-
     const operations = {
         '+': add(a,b),
         '-': subtract(a,b),

@@ -9,18 +9,21 @@ const clearDisplay = () =>{
 }
 
 const negativeHelper = (queue) =>{
-    
+    if(queue[0]=='-'){
+        queue[0]+=queue[1]
+        queue.splice(1,1)
+    }
     for(let i = 0; i<queue.length; i++){
 
         if(queue[i]=='-' && queue[i+1]=='-'){
             queue[i]='+'
             queue.splice(i+1,1);
         }
-        if(queue[0]=='-'){
-            queue[i]+=queue[i+1]
-            queue.splice(i+1,1)
+        if(queue[i]=='-' && queue[i-1]=='*'||queue[i]=='-' && queue[i-1]=='/'||queue[i]=='-' && queue[i-1]=='+'){
+            queue[i]+= queue[i+1];
+            queue.splice(i+1,1);
         }
-                
+    
     }
     return queue;
 }
@@ -29,13 +32,15 @@ const calculateAnswer = (queue) =>{
     
     let tempQueue = negativeHelper(queue.split(/(?=[*/+-])|(?<=[*/+-])/g));
     console.log(tempQueue)
+    if(tempQueue.length < 3 || tempQueue.slice(-1)=='*' || tempQueue.slice(-1)=='/' || tempQueue.slice(-1)=='+' || tempQueue.slice(-1)=='-'){
+        return queue;
+    }
     if(tempQueue.length > 3){
         while(tempQueue.length > 3){
             let newTemp = tempQueue.splice(0,3);
             let holder = operate(newTemp[0],newTemp[2],newTemp[1]);
             tempQueue.unshift(holder)
-        }     
-        
+        }            
     }
     return operate(tempQueue[0],tempQueue[2],tempQueue[1]);
 }
