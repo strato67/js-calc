@@ -64,3 +64,7 @@ buttons.forEach((button)=>{
     }
 });
 
+module.exports = {
+    calculateAnswer,
+    negativeHelper
+}
