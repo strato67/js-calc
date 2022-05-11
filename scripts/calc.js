@@ -3,7 +3,7 @@ const subtract = (a,b)=>parseFloat(a)-parseFloat(b);
 const multiply = (a,b)=>parseFloat(a)*parseFloat(b);
 const divide = (a,b)=>{
     if(b==0)
-        return '∞';
+        return 'Infinity';
     return parseFloat(a)/parseFloat(b);
 }
 var operate = (a,b,op) =>{
@@ -13,7 +13,11 @@ var operate = (a,b,op) =>{
         '*': multiply(a,b),
         '/': divide(a,b)
     }
-    return operations[op];
-
-
+    let result = operations[op];
+    if(result == 'Infinity')
+        return result;
+    
+    return Math.round(result*100)/100
 }
+
+module.exports = operate;
